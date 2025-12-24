@@ -13,6 +13,8 @@ import {
   ChevronLeft,
   ChevronRight,
   Target,
+  LogIn,
+  UserPlus,
 } from "lucide-react";
 
 const navigation = [
@@ -24,6 +26,11 @@ const navigation = [
   { name: "Еженедельный отчет", href: "/weekly-report", icon: FileText },
   { name: "Инструкции", href: "/instructions", icon: BookOpen },
   { name: "Настройки", href: "/settings", icon: Settings },
+];
+
+const authNavigation = [
+  { name: "Вход", href: "/login", icon: LogIn },
+  { name: "Регистрация", href: "/register", icon: UserPlus },
 ];
 
 export function Sidebar() {
@@ -92,6 +99,37 @@ export function Sidebar() {
           );
         })}
       </nav>
+
+      {/* Auth Navigation */}
+      <div className="border-t border-border p-2 space-y-1">
+        {authNavigation.map((item) => {
+          const isActive = location.pathname === item.href;
+          return (
+            <Link
+              key={item.name}
+              to={item.href}
+              className={cn(
+                "group flex items-center gap-3 rounded px-3 py-2.5 text-sm font-medium transition-all duration-200",
+                isActive
+                  ? "bg-hud-cyan/10 text-hud-cyan border border-hud-cyan/30"
+                  : "text-sidebar-foreground hover:bg-muted hover:text-foreground border border-transparent"
+              )}
+            >
+              <item.icon
+                className={cn(
+                  "h-5 w-5 shrink-0 transition-all",
+                  isActive ? "text-hud-cyan" : "text-muted-foreground group-hover:text-foreground"
+                )}
+              />
+              {!collapsed && (
+                <span className="font-mono text-xs uppercase tracking-wider truncate">
+                  {item.name}
+                </span>
+              )}
+            </Link>
+          );
+        })}
+      </div>
 
       {/* Status Footer */}
       <div className="border-t border-border p-4">
