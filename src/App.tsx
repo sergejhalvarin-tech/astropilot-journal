@@ -11,6 +11,8 @@ import Academy from "./pages/Academy";
 import WeeklyReport from "./pages/WeeklyReport";
 import Instructions from "./pages/Instructions";
 import Settings from "./pages/Settings";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +32,8 @@ const App = () => (
           <Route path="/weekly-report" element={<WeeklyReport />} />
           <Route path="/instructions" element={<Instructions />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
