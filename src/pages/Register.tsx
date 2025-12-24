@@ -16,7 +16,7 @@ import {
   Zap
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import fighterJetsBg from "@/assets/fighter-jets-bg.jfif";
+import militaryJetsBg from "@/assets/military-jets-bg.jfif";
 
 export default function Register() {
   const [showPassword, setShowPassword] = useState(false);
@@ -80,11 +80,10 @@ export default function Register() {
       <div 
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: `url(${fighterJetsBg})`,
-          backgroundSize: "contain",
-          backgroundPosition: "center",
+          backgroundImage: `url(${militaryJetsBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center center",
           backgroundRepeat: "no-repeat",
-          backgroundColor: "hsl(var(--background))",
         }}
       >
         {/* Overlay gradient - более прозрачный */}
