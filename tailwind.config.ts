@@ -121,6 +121,23 @@ export default {
           "0%": { transform: "translateY(-100%)" },
           "100%": { transform: "translateY(100%)" },
         },
+        "bg-pan": {
+          "0%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 50%" },
+        },
+        "float": {
+          "0%, 100%": { transform: "translateY(0) scale(1.05)" },
+          "50%": { transform: "translateY(-10px) scale(1.08)" },
+        },
+        "pulse-soft": {
+          "0%, 100%": { opacity: "0.4" },
+          "50%": { opacity: "0.6" },
+        },
+        "glow-sweep": {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -129,6 +146,10 @@ export default {
         "hud-fade-in": "hud-fade-in 0.3s ease-out forwards",
         "glow-pulse": "glow-pulse 3s ease-in-out infinite",
         scan: "scan 3s linear infinite",
+        "bg-pan": "bg-pan 30s ease-in-out infinite",
+        "float": "float 8s ease-in-out infinite",
+        "pulse-soft": "pulse-soft 4s ease-in-out infinite",
+        "glow-sweep": "glow-sweep 3s ease-in-out infinite",
       },
       boxShadow: {
         hud: "0 0 20px hsl(var(--hud-green) / 0.3)",
