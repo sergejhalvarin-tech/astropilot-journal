@@ -81,9 +81,10 @@ export default function Register() {
         className="absolute inset-0 z-0"
         style={{
           backgroundImage: `url(${fighterJetsBg})`,
-          backgroundSize: "cover",
+          backgroundSize: "contain",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
+          backgroundColor: "hsl(var(--background))",
         }}
       >
         {/* Overlay gradient - более прозрачный */}
