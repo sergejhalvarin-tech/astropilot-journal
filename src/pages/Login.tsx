@@ -151,8 +151,8 @@ export default function Login() {
             {/* Glow effect */}
             <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-primary/30 via-hud-cyan/20 to-primary/30 blur-xl opacity-60 animate-pulse-soft" />
             
-            {/* Glass card - transparent without blur */}
-            <div className="relative rounded-lg border border-primary/40 bg-background/20 p-8 shadow-[0_0_60px_hsl(var(--hud-green)/0.2)]">
+            {/* Glass card - less transparent */}
+            <div className="relative rounded-lg border border-primary/40 bg-background/60 p-8 shadow-[0_0_60px_hsl(var(--hud-green)/0.2)]">
               {/* Corner decorations */}
               <div className="absolute top-0 left-0 h-4 w-4 border-t-2 border-l-2 border-primary" />
               <div className="absolute top-0 right-0 h-4 w-4 border-t-2 border-r-2 border-primary" />
