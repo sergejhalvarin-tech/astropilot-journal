@@ -86,8 +86,8 @@ export default function Register() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/80 to-background/70" />
+        {/* Overlay gradient - более прозрачный */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background/70 via-background/50 to-background/40" />
         
         {/* Scanline effect */}
         <div 
@@ -151,7 +151,7 @@ export default function Register() {
             {/* Glow effect */}
             <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-primary/20 via-hud-cyan/20 to-primary/20 blur-lg opacity-75" />
             
-            <div className="relative rounded-lg border border-primary/30 bg-card/95 backdrop-blur-md p-8 shadow-[0_0_40px_hsl(var(--hud-green)/0.15)]">
+            <div className="relative rounded-lg border border-primary/30 bg-card/40 backdrop-blur-md p-8 shadow-[0_0_40px_hsl(var(--hud-green)/0.15)]">
               {/* Corner decorations */}
               <div className="absolute top-0 left-0 h-4 w-4 border-t-2 border-l-2 border-primary" />
               <div className="absolute top-0 right-0 h-4 w-4 border-t-2 border-r-2 border-primary" />
@@ -163,7 +163,7 @@ export default function Register() {
                 <div className="flex justify-center mb-4">
                   <div className="relative">
                     <div className="absolute -inset-2 rounded-full bg-primary/20 animate-pulse" />
-                    <div className="relative flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-card">
+                    <div className="relative flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-card/60 backdrop-blur-sm">
                       <Zap className="h-8 w-8 text-primary" />
                     </div>
                   </div>
@@ -347,7 +347,7 @@ export default function Register() {
                   <div className="w-full border-t border-border" />
                 </div>
                 <div className="relative flex justify-center">
-                  <span className="bg-card px-4 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                  <span className="bg-transparent px-4 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                     или
                   </span>
                 </div>
