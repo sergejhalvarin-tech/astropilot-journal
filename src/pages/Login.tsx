@@ -16,7 +16,7 @@ import {
   Zap
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import fighterJetsBg from "@/assets/fighter-jets-bg.jfif";
+import animatedJetsBg from "@/assets/animated-jets-bg.jfif";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -54,32 +54,54 @@ export default function Login() {
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${fighterJetsBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/80 to-background/70" />
+      {/* Animated Background Image */}
+      <div className="absolute inset-0 z-0">
+        {/* Main animated background */}
+        <div 
+          className="absolute inset-[-20px] animate-float"
+          style={{
+            backgroundImage: `url(${animatedJetsBg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            backgroundRepeat: "no-repeat",
+          }}
+        />
+        
+        {/* Glow sweep effect */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div 
+            className="absolute inset-y-0 w-1/2 animate-glow-sweep"
+            style={{
+              background: "linear-gradient(90deg, transparent, hsl(var(--hud-cyan) / 0.1), transparent)",
+            }}
+          />
+        </div>
+        
+        {/* Subtle vignette */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: "radial-gradient(ellipse at center, transparent 40%, hsl(var(--background) / 0.3) 100%)",
+          }}
+        />
         
         {/* Scanline effect */}
         <div 
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.02] pointer-events-none"
           style={{
             backgroundImage: `repeating-linear-gradient(
               0deg,
               transparent,
               transparent 2px,
-              hsl(var(--hud-green) / 0.1) 2px,
-              hsl(var(--hud-green) / 0.1) 4px
+              hsl(var(--hud-green) / 0.15) 2px,
+              hsl(var(--hud-green) / 0.15) 4px
             )`,
           }}
         />
+        
+        {/* Animated glow corners */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-hud-cyan/10 rounded-full blur-[100px] animate-pulse-soft" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[100px] animate-pulse-soft" style={{ animationDelay: "2s" }} />
       </div>
 
       {/* HUD Corner Elements */}
@@ -127,9 +149,10 @@ export default function Login() {
           {/* Login Card */}
           <div className="relative">
             {/* Glow effect */}
-            <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-primary/20 via-hud-cyan/20 to-primary/20 blur-lg opacity-75" />
+            <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-primary/30 via-hud-cyan/20 to-primary/30 blur-xl opacity-60 animate-pulse-soft" />
             
-            <div className="relative rounded-lg border border-primary/30 bg-card/95 backdrop-blur-md p-8 shadow-[0_0_40px_hsl(var(--hud-green)/0.15)]">
+            {/* Glass card - transparent without blur */}
+            <div className="relative rounded-lg border border-primary/40 bg-background/20 p-8 shadow-[0_0_60px_hsl(var(--hud-green)/0.2)]">
               {/* Corner decorations */}
               <div className="absolute top-0 left-0 h-4 w-4 border-t-2 border-l-2 border-primary" />
               <div className="absolute top-0 right-0 h-4 w-4 border-t-2 border-r-2 border-primary" />
@@ -140,13 +163,13 @@ export default function Login() {
               <div className="text-center mb-8">
                 <div className="flex justify-center mb-4">
                   <div className="relative">
-                    <div className="absolute -inset-2 rounded-full bg-primary/20 animate-pulse" />
-                    <div className="relative flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-card">
+                    <div className="absolute -inset-2 rounded-full bg-primary/30 animate-pulse" />
+                    <div className="relative flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-background/30">
                       <Zap className="h-8 w-8 text-primary" />
                     </div>
                   </div>
                 </div>
-                <h1 className="font-mono text-2xl font-bold tracking-wider text-foreground mb-2">
+                <h1 className="font-mono text-2xl font-bold tracking-wider text-foreground mb-2 drop-shadow-[0_0_10px_hsl(var(--primary)/0.5)]">
                   ВХОД В СИСТЕМУ
                 </h1>
                 <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
@@ -171,7 +194,7 @@ export default function Login() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="pl-10"
+                      className="pl-10 bg-background/30 border-primary/30"
                     />
                     <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   </div>
@@ -200,7 +223,7 @@ export default function Login() {
                       value={formData.password}
                       onChange={handleChange}
                       required
-                      className="pl-10 pr-10"
+                      className="pl-10 pr-10 bg-background/30 border-primary/30"
                     />
                     <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <button
@@ -271,10 +294,10 @@ export default function Login() {
               {/* Divider */}
               <div className="relative my-6">
                 <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-border" />
+                  <div className="w-full border-t border-border/50" />
                 </div>
                 <div className="relative flex justify-center">
-                  <span className="bg-card px-4 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                  <span className="bg-transparent px-4 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                     или
                   </span>
                 </div>
@@ -285,7 +308,7 @@ export default function Login() {
                 <Button
                   type="button"
                   variant="outline"
-                  className="flex-1 font-mono text-xs"
+                  className="flex-1 font-mono text-xs bg-background/20 border-primary/30 hover:bg-background/40"
                   onClick={() => navigate("/")}
                 >
                   Обзор системы
