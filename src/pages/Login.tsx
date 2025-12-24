@@ -16,7 +16,7 @@ import {
   Zap
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import animatedJetsBg from "@/assets/animated-jets-bg.jfif";
+import jetsAerialBg from "@/assets/jets-aerial-bg.png";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -60,7 +60,7 @@ export default function Login() {
         <div 
           className="absolute inset-[-20px] animate-float"
           style={{
-            backgroundImage: `url(${animatedJetsBg})`,
+            backgroundImage: `url(${jetsAerialBg})`,
             backgroundSize: "cover",
             backgroundPosition: "center center",
             backgroundRepeat: "no-repeat",
