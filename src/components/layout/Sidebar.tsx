@@ -101,34 +101,47 @@ export function Sidebar() {
       </nav>
 
       {/* Auth Navigation */}
-      <div className="border-t border-border p-2 space-y-1">
-        {authNavigation.map((item) => {
-          const isActive = location.pathname === item.href;
-          return (
-            <Link
-              key={item.name}
-              to={item.href}
-              className={cn(
-                "group flex items-center gap-3 rounded px-3 py-2.5 text-sm font-medium transition-all duration-200",
-                isActive
-                  ? "bg-hud-cyan/10 text-hud-cyan border border-hud-cyan/30"
-                  : "text-sidebar-foreground hover:bg-muted hover:text-foreground border border-transparent"
-              )}
-            >
-              <item.icon
-                className={cn(
-                  "h-5 w-5 shrink-0 transition-all",
-                  isActive ? "text-hud-cyan" : "text-muted-foreground group-hover:text-foreground"
-                )}
-              />
-              {!collapsed && (
-                <span className="font-mono text-xs uppercase tracking-wider truncate">
-                  {item.name}
-                </span>
-              )}
-            </Link>
-          );
-        })}
+      <div className="border-t border-border p-2 space-y-2">
+        {/* Кнопка регистрации - выделенная */}
+        <Link
+          to="/register"
+          className={cn(
+            "group flex items-center gap-3 rounded px-3 py-3 text-sm font-medium transition-all duration-200",
+            "bg-gradient-to-r from-primary/20 to-hud-cyan/20 text-primary border border-primary/40",
+            "hover:from-primary/30 hover:to-hud-cyan/30 hover:border-primary/60",
+            "shadow-[0_0_15px_hsl(var(--hud-green)/0.2)]"
+          )}
+        >
+          <UserPlus className="h-5 w-5 shrink-0 text-primary" />
+          {!collapsed && (
+            <span className="font-mono text-xs uppercase tracking-wider truncate">
+              Регистрация
+            </span>
+          )}
+        </Link>
+        
+        {/* Кнопка входа */}
+        <Link
+          to="/login"
+          className={cn(
+            "group flex items-center gap-3 rounded px-3 py-2.5 text-sm font-medium transition-all duration-200",
+            location.pathname === "/login"
+              ? "bg-hud-cyan/10 text-hud-cyan border border-hud-cyan/30"
+              : "text-sidebar-foreground hover:bg-muted hover:text-foreground border border-transparent"
+          )}
+        >
+          <LogIn
+            className={cn(
+              "h-5 w-5 shrink-0 transition-all",
+              location.pathname === "/login" ? "text-hud-cyan" : "text-muted-foreground group-hover:text-foreground"
+            )}
+          />
+          {!collapsed && (
+            <span className="font-mono text-xs uppercase tracking-wider truncate">
+              Вход
+            </span>
+          )}
+        </Link>
       </div>
 
       {/* Status Footer */}
