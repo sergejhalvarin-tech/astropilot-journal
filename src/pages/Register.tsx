@@ -16,7 +16,7 @@ import {
   Zap
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import jetsAerialBg from "@/assets/jets-aerial-bg.png";
+import instagramBg from "@/assets/instagram-bg.jfif";
 
 export default function Register() {
   const [showPassword, setShowPassword] = useState(false);
@@ -82,7 +82,7 @@ export default function Register() {
         <div 
           className="absolute inset-[-20px] animate-float"
           style={{
-            backgroundImage: `url(${jetsAerialBg})`,
+            backgroundImage: `url(${instagramBg})`,
             backgroundSize: "cover",
             backgroundPosition: "center center",
             backgroundRepeat: "no-repeat",
