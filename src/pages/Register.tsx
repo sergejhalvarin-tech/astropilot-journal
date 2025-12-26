@@ -80,14 +80,23 @@ export default function Register() {
       <div className="absolute inset-0 z-0">
         {/* Main animated background */}
         <div 
-          className="absolute inset-0"
+          className="absolute inset-0 flex items-center justify-center"
           style={{
-            backgroundImage: `url(${instagramBg})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center center",
-            backgroundRepeat: "no-repeat",
+            backgroundColor: "hsl(var(--background))",
           }}
-        />
+        >
+          <img 
+            src={instagramBg} 
+            alt="Background"
+            className="max-w-full max-h-full w-auto h-auto object-contain"
+            style={{
+              minWidth: "100%",
+              minHeight: "100%",
+              objectFit: "cover",
+              objectPosition: "center",
+            }}
+          />
+        </div>
         
         {/* Glow sweep effect */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
