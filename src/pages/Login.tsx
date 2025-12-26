@@ -58,7 +58,7 @@ export default function Login() {
       <div className="absolute inset-0 z-0">
         {/* Main animated background */}
         <div 
-          className="absolute inset-[-20px] animate-float"
+          className="absolute inset-0"
           style={{
             backgroundImage: `url(${instagramBg})`,
             backgroundSize: "cover",
